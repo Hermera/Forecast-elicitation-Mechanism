@@ -16,7 +16,7 @@ To begin, import femtools
     import femtools as fem
 
 ## BTS
-For Bayesian Truth Serum, we implemented the version with finite players. Call the function `BTS` with answers `x` and predicted frequencies `y`, score for every respondent is returned. `x` and `y` can be given in the `numpy.array` form or `list` form. If there are n respondents and m possible answers, `x` should be an n-dimensional vector and  each answer in x should be an integer in [0, m). Similarly, `y` is a `n*m` matrix denoting the predicted frequencies. BTS score is composed of information-score and prediction score, thus optional parameter alpha controlling the weight given to the prediction score could be assigned between (0,1]. By default, alpha is 1.
+For Bayesian Truth Serum, we implemented the version with finite players. Call the function `BTS` with answers `x` and predicted frequencies `y`, score for every respondent is returned. `x` and `y` can be given in the `numpy.array` form or `list` form. If there are n respondents and m possible answers, `x` should be an n-dimensional vector and  each answer in `x` should be an integer in `[0, m)`. Similarly, `y` is a `n*m` matrix denoting the predicted frequencies. BTS score is composed of information-score and prediction score, thus optional parameter alpha controlling the weight given to the prediction score could be assigned between `(0,1]`. By default, `alpha` is `1`.
 
 Here are examples
 
