@@ -20,7 +20,7 @@ For Bayesian Truth Serum, we implemented the version with finite players. Call t
 
 Here are examples
 
-	>>> BTS([3, 2, 1, 1, 0],
+	>>> fem.BTS([3, 2, 1, 1, 0],
 	... [[0.1, 0.1, 0.3, 0.5],
 	... [0.1, 0.2, 0.5, 0.2],
 	... [0.3, 0.4, 0.2, 0.1],
@@ -28,7 +28,7 @@ Here are examples
 	... [0.1, 0.3, 0.2, 0.4]])
 	array([-3.28030172, -2.40787449, -0.29706308, -0.29706308, -1.074341  ])
 
-	>>> BTS([0, 0, 0],
+	>>> fem.BTS([0, 0, 0],
 	... [[0.5, 0.5],
 	... [0.5, 0.5],
 	... [0.5, 0.5]], alpha = 0.5)
@@ -39,7 +39,7 @@ For Correlated Agreement Mechanism, we implemented the detail-free version. CA D
 
 Here is the example
 
-	>>> CA([['subway', 'subway', 'subway', 'burgerK', 'burgerK', 'burgerK'],
+	>>> fem.CA([['subway', 'subway', 'subway', 'burgerK', 'burgerK', 'burgerK'],
 	... ['burgerK', 'McDonald', 'subway', 'McDonald', 'burgerK', 'burgerK'],
 	... ['burgerK', 'McDonald', 'subway', 'McDonald', 'burgerK', 'burgerK'],
 	... ['KFC', 'KFC', 'KFC', 'PizzaHot', 'McDonald', 'McDonald'],
