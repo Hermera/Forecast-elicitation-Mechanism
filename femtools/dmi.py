@@ -25,6 +25,8 @@ def dmi2(A1, B1, A2, B2, C):
 
 
 def DMI(answers, choice_n):
+    if type(answers) == list:
+        answers = np.array(answers)
     agent_n, task_n = answers.shape
 
     # T >= 2C; N > 1;
@@ -52,9 +54,6 @@ def DMI(answers, choice_n):
         p /= norm_factor
         payments.append(p)
 
-    return payments
+    return np.array(payments)
 
 
-if __name__ == '__main__':
-    arr = np.array([[1, 1, 0, 1, 1, 0, 1], [1, 1, 0, 0, 1, 0, 1]])
-    print(DMI(arr, 2))

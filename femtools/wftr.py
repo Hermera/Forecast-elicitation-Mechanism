@@ -28,7 +28,7 @@ class functions:
         self.f = a
         self.f_prime = b
         self.f_star = c
-
+        
 def TVD(t):
     return abs(t - 1)
 def TVD_prime(x):
@@ -53,6 +53,9 @@ def R(f, a, b, p):
     return f( a*b/p + (1-a)*(1-b)/(1-p) )
 
 def MIG(answers, function, prior):
+    if type(answers) == list:
+        answers = np.array(answers)
+        
     agent_n, task_n = answers.shape
 
     # N > 1;
@@ -75,7 +78,7 @@ def MIG(answers, function, prior):
                 penalty += R(fs.f_star, answers[0][i], answers[1][j], prior)
     payment = reward / task_n - penalty / (task_n * (task_n - 1))
 
-    return [payment, payment]
+    return np.array([payment, payment])
 
 
 if __name__ == '__main__':

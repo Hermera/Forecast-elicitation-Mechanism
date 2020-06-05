@@ -2,8 +2,8 @@
 
 Implement 4 papers:
 
-- Water from Two Rocks: Maximizing the Mutual Information (wftr)
-- Dominantly Truthful Multi-task Peer Prediction with a Constant Number of Tasks (dmi)
+- Water from Two Rocks: Maximizing the Mutual Information (MCG)
+- Dominantly Truthful Multi-task Peer Prediction with a Constant Number of Tasks (DMI)
 - A Bayesian truth serum for subjective data (BTS)
 - Informed Truthfulness in Multi-Task Peer Prediction (CA)
 
@@ -13,7 +13,7 @@ Implement 4 papers:
 You can install the package `femtools` using pip
 
 	pip install femtools
-	
+
 To begin, import femtools
 
 	import numpy as np
@@ -31,7 +31,7 @@ Here are examples
 	... [0.3, 0.4, 0.1, 0.2],
 	... [0.1, 0.3, 0.2, 0.4]])
 	array([-3.28030172, -2.40787449, -0.29706308, -0.29706308, -1.074341  ])
-
+	
 	>>> fem.BTS([0, 0, 0],
 	... [[0.5, 0.5],
 	... [0.5, 0.5],
@@ -56,4 +56,26 @@ Here is the example
 	... ['PizzaHot', 'PizzaHot', 'PizzaHot', 'PizzaHot', 'PizzaHot', 'McDonald'],
 	... ], agent_first = False)
 	array([23, 20, 12, 23, 25, 25])
+
+## DMI
+
+Call the function `DMI` with answers `x` and the number of choices `C`. `x` should be given in the `numpy.array` form or `list` form. If there are n agents and m tasks,  `x` is a `n*m` matrix. Please make sure `m >= 2c` and each answer in `x` is an integer in `[0, c)`, otherwise the function will raise a `ValueError`.  DMI scores will return in `numpy.array` form.
+
+Here is an example
+
+```
+>>> fem.DMI([[1, 1, 0, 1, 1, 0, 1, 1, 1], [1, 1, 0, 0, 1, 0, 1, 0, 1]], 2)
+array([1.5, 1.5])
+```
+
+## MCG
+
+We implemented the multi-task common ground mechanism MCG(f) for Bernoulli distribution case. Call the function `MCG` with answers, function `f` and prior. The answers should be a `2*n` matrix in `numpy.array` form or `list` form for 2 agents' prediction and all the number in answers should in `[0, 1]`.  The prior is a number in `[0, 1]`, too. `f` should be in `["TVD", "KLD"]` for Total Variation Distance and KL divergence, respectively. By default, `f = "TVD"` . More functions will be supported in the future. The payments will return in `numpy.array` form.
+
+Here is an example
+
+```
+>>> fem.DMI([[0.2, 0.3, 0.2], [0.3, 0.5, 0.3]], 'TVD', 0.3)
+array([0.3333333333333333, 0.3333333333333333])
+```
 
